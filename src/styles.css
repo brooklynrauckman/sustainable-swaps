@@ -1,0 +1,413 @@
+* {
+  box-sizing: border-box;
+}
+
+/* main page containers */
+
+body {
+  margin: 0;
+  background-color: #000000;
+  font-family: "Poppins", sans-serif;
+}
+
+.App {
+  text-align: center;
+  width: 100vw;
+  padding: 1.5rem;
+  max-width: 940px;
+  margin: auto;
+}
+
+.hero-wrapper {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #000000),
+    url("/trees.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.Hero {
+  padding: 1.5rem;
+  position: relative;
+  max-width: 940px;
+  margin: auto;
+}
+
+/* modal  */
+
+.modal {
+  background-color: #ffffff;
+  border-radius: 10px;
+  color: #000000;
+  padding: 2rem;
+  margin: 1.5rem;
+  height: auto;
+  max-height: 400px;
+  width: calc(100% - 3rem);
+  max-width: 450px;
+  overflow: scroll;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.in-bag {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  padding: .5rem;
+  cursor: pointer;
+  z-index: 1
+}
+
+.close:hover .close-icon, .bag:hover .bag-icon {
+  transform: scale(1.1);
+}
+
+.close-icon {
+  pointer-events: none;
+  z-index: -1;
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.remove {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.remove:hover .minus-icon {
+  transform: scale(1.1) rotate(180deg);
+}
+
+.value, .remove {
+display: inline;
+}
+
+.value-and-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.minus-icon {
+  pointer-events: none;
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.share, .share-link {
+  padding-bottom: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-button {
+  background-color: #F1F1F1;
+  transition: 0.3s;
+  border: 1px solid #F1F1F1;
+  transition: 0.3s;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  color: #000000;
+  font-size: 0.8rem;
+  width: 100%;
+  outline: none;
+}
+
+.share-button:hover {
+  background-color: #D8D8D8	;
+  border: 1px solid #D8D8D8	;
+  cursor: pointer;
+}
+
+.share-link {
+  font-size: 0.8rem;
+
+}
+
+/* Hero content */
+
+.bag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bag-icon {
+  pointer-events: none;
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.name {
+  margin-bottom: 0;
+}
+
+.tagline {
+  margin-top: 0;
+  line-height: 3rem;
+  font-size: 2.5rem;
+}
+
+.title {
+  text-align: left;
+  color: #ffffff;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Search bar */
+
+.search {
+  width: 100%;
+  border: 0;
+  border-radius: 15px;
+  padding: 1.5rem 50px;
+  background-image: url('data:image/svg+xml;utf8,<svg className="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="25" width="25" fill="none" stroke="%238A8A8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  background-color: #212121;
+}
+
+::placeholder,
+input:focus,
+input {
+  font-family: inherit;
+  color: #8a8a8a;
+  font-size: 16px;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #8a8a8a;
+  padding-bottom: calc(1.5rem - 2px);
+  padding-top: calc(1.5rem - 2px);
+}
+
+/* search tags */
+
+.search-tag {
+  background-color: #212121;
+  border: 1px solid #212121;
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  color: #8a8a8a;
+  font-size: 0.8rem;
+  margin: 1rem 0.5rem;
+  display: inline;
+  outline: none;
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.search-tag:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.filter {
+  border: 1px solid #8a8a8a;
+  border-radius: 15px;
+}
+
+.tag-container {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+/* Swap cards */
+
+.Cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  width: 100%;
+  grid-gap: 2rem;
+  padding: 2rem 0;
+  justify-content: center;
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: 15px;
+  background-color: #ffffff;
+}
+
+.Swaps {
+  position: relative;
+}
+
+/* Swap card content */
+
+.swap-item {
+  text-align: left;
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.bad {
+  font-size: 1rem;
+  text-decoration: line-through;
+}
+
+.bad:before,
+.bad:after {
+  content: "\00a0\00a0";
+}
+
+.bars {
+  position: absolute;
+  width: 100%;
+}
+
+.ease-bar {
+  background-color: #12cfa6;
+  height: 0.4rem;
+  border-radius: 15px;
+}
+
+.effect-bar {
+  background-color: #ff0d59;
+  height: 0.4rem;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.legend {
+  text-align: left;
+  font-style: oblique;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  color: gray;
+  padding-bottom: 1.5rem;
+  padding-top: 2rem;
+}
+
+.ease-dot::before {
+  content: "\2022";
+  color: #12cfa6;
+  font-weight: bold;
+  display: inline-block;
+  width: 1rem;
+  font-size: 1.3rem;
+  vertical-align: middle;
+}
+
+.effect-dot::before {
+  content: "\2022";
+  color: #ff0d59;
+  font-weight: bold;
+  display: inline-block;
+  width: 1rem;
+  font-size: 1.3rem;
+  vertical-align: middle;
+}
+
+.learn-more {
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.link-icon {
+  height: 12px;
+  width: 12px;
+  margin-right: 0.2rem;
+}
+
+.link {
+text-decoration: none;
+color: inherit;
+}
+
+.swap-value {
+  color: gray;
+  float: right;
+}
+
+.plus {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.plus:hover .plus-icon {
+  transform: scale(1.1) rotate(180deg);
+}
+
+.plus-icon, .bag-icon {
+  pointer-events: none;
+  margin: 0 auto;
+  display: block;
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+/* selected swap cards */
+
+.selected .minus {
+  display: none;
+}
+
+/* sticky savings button */
+
+.savings-button {
+  background-color: #e44232;
+  border: 1px solid #e44232;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  color: #ffffff;
+  font-size: 0.8rem;
+  float: right;
+  box-shadow: 0px 3px 3px rgba(255, 0, 0, 0.3);
+}
+
+.Sticky {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 48px);
+  max-width: calc(940px - 48px);
+  margin-bottom: 24px;
+}
+
+/* media queries  */
+
+@media (min-width: 650px) {
+  .Cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 950px) {
+  .Cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
